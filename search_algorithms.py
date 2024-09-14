@@ -6,6 +6,7 @@ from collections import deque
 def breadth_first_search(startState, action_list, goal_test, use_closed_list=True) :
     search_queue = deque()
     closed_list = {}
+    state_count = 1
 
     search_queue.append((startState,""))
     if use_closed_list :
@@ -13,6 +14,7 @@ def breadth_first_search(startState, action_list, goal_test, use_closed_list=Tru
     while len(search_queue) > 0 :
         ## this is a (state, "action") tuple
         next_state = search_queue.popleft()
+        state_count += 1
         if goal_test(next_state[0]):
             print("Goal found")
             print(next_state)
@@ -28,7 +30,9 @@ def breadth_first_search(startState, action_list, goal_test, use_closed_list=Tru
                                     if item[0] not in closed_list]
                 for s in successors :
                     closed_list[s[0]] = True
+                    state_count += 1
             search_queue.extend(successors)
+    print(state_count)
 
 ### Note the similarity to BFS - the only difference is the search queue
 
@@ -36,6 +40,7 @@ def breadth_first_search(startState, action_list, goal_test, use_closed_list=Tru
 def depth_first_search(startState, action_list, goal_test, use_closed_list=True,limit=0) :
     search_queue = deque()
     closed_list = {}
+    state_count = 1
 
     search_queue.append((startState,""))
     if use_closed_list :
@@ -43,6 +48,7 @@ def depth_first_search(startState, action_list, goal_test, use_closed_list=True,
     while len(search_queue) > 0 :
         ## this is a (state, "action") tuple
         next_state = search_queue.pop()
+        state_count += 1
         if goal_test(next_state[0]):
             print("Goal found")
             print(next_state)
@@ -57,11 +63,14 @@ def depth_first_search(startState, action_list, goal_test, use_closed_list=True,
                 successors = [item for item in successors
                                     if item[0] not in closed_list]
                 for s in successors :
+                    state_count += 1
                     closed_list[s[0]] = True
             search_queue.extend(successors)
+    print(state_count)
+
 
 ## add iterative deepening search here
 
 
 
-f
+
