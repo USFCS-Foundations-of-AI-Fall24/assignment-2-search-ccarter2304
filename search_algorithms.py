@@ -13,13 +13,14 @@ def breadth_first_search(startState, action_list, goal_test, use_closed_list=Tru
         ## this is a (state, "action") tuple
         next_state = search_queue.popleft()
         if goal_test(next_state[0]):
+            print("State Count: ", state_count)
+            print("************************************************************")
             print("Goal found")
             print(next_state)
             ptr = next_state[0]
             while ptr is not None :
                 ptr = ptr.prev
                 print(ptr)
-            print(state_count)
             return next_state
         else :
             successors = next_state[0].successors(action_list)
@@ -48,13 +49,14 @@ def depth_first_search(startState, action_list, goal_test, use_closed_list=True,
         ## this is a (state, "action") tuple
         next_state = search_queue.pop()
         if goal_test(next_state[0]):
+            print("State Count: ", state_count)
+            print("************************************************************")
             print("Goal found")
             print(next_state)
             ptr = next_state[0]
             while ptr is not None :
                 ptr = ptr.prev
                 print(ptr)
-            print(state_count)
             return next_state
         else :
             if limit == 0 or (depth + 1) < limit:

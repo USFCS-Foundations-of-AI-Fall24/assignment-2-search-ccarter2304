@@ -149,10 +149,10 @@ def return_to_charger(state) :
     return (state.moved_to_station == True and state.loc == "battery")
 
 if __name__=="__main__" :
-    # s = RoverState()
-    # # result_bfs = breadth_first_search(s, action_list, mission_complete)
-    # # result_dfs = depth_first_search(s, action_list, mission_complete)
-    # result_dls = depth_first_search(s, action_list, mission_complete, limit=7)
+    s = RoverState()
+    result_bfs = breadth_first_search(s, action_list, mission_complete)
+    result_dfs = depth_first_search(s, action_list, mission_complete)
+    result_dls = depth_first_search(s, action_list, mission_complete, limit=7)
 
     ### Problem Decomposition
     # pds = RoverState()
@@ -162,12 +162,12 @@ if __name__=="__main__" :
     # pds_rc = RoverState(loc="station", holding_sample=False, moved_to_station=True, sample_extracted=True)
     # result_rc = breadth_first_search(pds_rc, action_list, return_to_charger)
 
-    pds = RoverState()
-    result_pds = depth_first_search(pds, action_list, move_to_sample_goal, limit=2)
-    pds_rs = RoverState(loc="sample")
-    result_rs = depth_first_search(pds_rs, action_list, remove_sample, limit=4)
-    pds_rc = RoverState(loc="station", holding_sample=False, moved_to_station=True, sample_extracted=True)
-    result_rc = depth_first_search(pds_rc, action_list, return_to_charger, limit=2)
+    # pds = RoverState()
+    # result_pds = depth_first_search(pds, action_list, move_to_sample_goal, limit=2)
+    # pds_rs = RoverState(loc="sample")
+    # result_rs = depth_first_search(pds_rs, action_list, remove_sample, limit=4)
+    # pds_rc = RoverState(loc="station", holding_sample=False, moved_to_station=True, sample_extracted=True)
+    # result_rc = depth_first_search(pds_rc, action_list, return_to_charger, limit=2)
 
 
 
