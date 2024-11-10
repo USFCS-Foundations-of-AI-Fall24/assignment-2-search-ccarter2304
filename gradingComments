@@ -1,0 +1,42 @@
+Assignment 2 comments:
+
+Question 1: Algorithms. 10/10
+
+Question 2:
+
+eq: 5/5
+
+goal: 5/5
+
+BFS/DFS: 5/5
+
+DLS: 7/10 - you're incrementing depth for each node dequeued, which is going
+to give you an incorrect count. It's easier to make this a member variable 
+of the node and then have each child's depth be parent + 1.
+
+tools: 10/10
+
+decomposition: 10/10
+
+Question 3:
+
+read_mars_graph: 5/5
+
+A*: 10/15
+A couple of things are off here:
+- g should be calculated based on the parent's g, rather than a global
+variable.
+- You're not using the goal test to see if you're done.
+
+
+count states: 5/5
+
+Question 4: 10/10
+
+Question 5: 10/10
+
+92/100
+
+
+
+
